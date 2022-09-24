@@ -33,7 +33,6 @@ async function onSearch(e) {
     );
     return;
   }
-  clearHitsContainer();
 
   addCardImage(data.hits);
 
