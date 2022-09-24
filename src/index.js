@@ -13,7 +13,10 @@ refs.loadMoreBtn.addEventListener('click', onLoadMore);
 async function onSearch(e) {
   e.preventDefault();
 
-  newsApiServise.searchQuery = e.currentTarget.elements.searchQuery.value;
+  newsApiServise.searchQuery =
+    e.currentTarget.elements.searchQuery.value.trim();
+
+  clearHitsContainer();
 
   refs.loadMoreBtn.classList.add('is-hidden');
 
@@ -23,6 +26,8 @@ async function onSearch(e) {
     return Notify.failure('Please provide keywords to search for.');
   }
   if (data.hits.length === 0) {
+    clearHitsContainer();
+
     Notify.failure(
       'Sorry, there are no images matching your search query. Please try again.'
     );
