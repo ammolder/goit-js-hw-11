@@ -53,9 +53,6 @@ async function onLoadMore(data) {
     top: cardHeight * 2,
     behavior: 'smooth',
   });
-
-  console.log(res.totalHits);
-  console.log(newsApiServise.page);
   if (res.totalHits - 40 * (newsApiServise.page - 1) <= 0) {
     refs.loadMoreBtn.classList.add('is-hidden');
     Notify.failure(
@@ -65,8 +62,6 @@ async function onLoadMore(data) {
 }
 
 function addCardImage(cardImage) {
-  console.log(cardImage);
-
   const addMarketing = cardImage
     .map(
       common => `<div class="photo-card">
